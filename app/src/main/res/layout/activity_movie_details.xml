@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_detail_layout">
+
+        <!-- BEGIN TOOLBAR -->
+        <!-- BACKDROP IMAGE -->
+        <ImageView
+            android:id="@+id/movie_details_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            tools:background="@drawable/backdrop_example"
+            android:scaleType="centerCrop"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+        <!-- BACKDROP DARKENING IMAGE -->
+        <ImageView
+            android:id="@+id/toolbar_darken"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colorDarkenToolBar"
+            android:alpha="0.4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/movie_details_toolbar" />
+        <!-- BACK BUTTON -->
+        <ImageView
+            android:id="@+id/iv_back_movie_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back_white_24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp" />
+        <!-- ACTIVITY TITLE -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movie_details"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="20sp"
+            android:id="@+id/toolbar_title_movie_details"
+            app:layout_constraintTop_toTopOf="@+id/iv_back_movie_details"
+            app:layout_constraintLeft_toRightOf="@+id/iv_back_movie_details"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"/>
+        <!-- END TOOLBAR -->
+
+        <!-- MOVIE POSTER -->
+        <ImageView
+            android:id="@+id/iv_movie_poster_detail"
+            android:layout_width="93dp"
+            android:layout_height="139dp"
+            tools:src="@drawable/poster_example"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_darken"
+            app:layout_constraintBottom_toBottomOf="@+id/movie_details_toolbar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"/>
+
+        <!-- MOVIE TITLE -->
+        <TextView
+            android:id="@+id/tv_movie_title_details"
+            tools:text="Interstellar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="22sp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintLeft_toRightOf="@+id/iv_movie_poster_detail"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/favorite_button_default"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+        <!-- FAVORITES ACTION BUTTON - DEFAULT -->
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/favorite_button_default"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:clickable="true"
+            android:scaleType="center"
+            app:backgroundTint="@color/colorPrimary"
+            android:src="@drawable/ic_favorite_border_black_24px"
+            app:layout_constraintTop_toBottomOf="@+id/movie_details_toolbar"
+            app:layout_constraintBottom_toBottomOf="@+id/movie_details_toolbar"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- FAVORITES ACTION BUTTON - CLICKED -->
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/favorite_button_clicked"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:clickable="true"
+            android:scaleType="center"
+            app:backgroundTint="@color/colorPrimary"
+            android:src="@drawable/ic_favorite_black_24px"
+            app:layout_constraintTop_toBottomOf="@+id/movie_details_toolbar"
+            app:layout_constraintBottom_toBottomOf="@+id/movie_details_toolbar"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="invisible"/>
+
+        <!-- ACTIVITY LOADING INDICATOR -->
+        <ProgressBar
+            android:id="@+id/pb_loading_indicator_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!-- BEGIN MAIN CONTENT -->
+        <!-- ERROR MESSAGE -->
+        <TextView
+            android:id="@+id/tv_error_message_display_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/movie_details_toolbar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp" />
+
+        <!-- ORIGINAL MOVIE TITLE -->
+        <TextView
+            android:id="@+id/tv_movie_original_title_details"
+            tools:text="Original title: Interstellar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintLeft_toRightOf="@+id/iv_movie_poster_detail"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/movie_details_toolbar"
+            android:layout_marginTop="26dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" />
+
+        <!-- RELEASE DATE -->
+        <TextView
+            android:id="@+id/tv_date_details"
+            tools:text="Release date : 11/05/2014"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_movie_original_title_details"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_movie_original_title_details"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- SYNOPSIS -->
+        <TextView
+            android:id="@+id/tv_description_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Synopsis: Dans un futur proche, face à une Terre exsangue, un groupe d'explorateurs utilise un vaisseau interstellaire pour franchir un trou de ver permettant de parcourir des distances jusque-là infranchissables. Leur but : trouver un nouveau foyer pour l'humanité."
+            android:textSize="17sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_date_details"
+            android:layout_marginTop="28dp"
+            android:paddingRight="16dp"
+            android:paddingEnd="16dp"
+            android:paddingLeft="16dp"
+            android:paddingStart="16dp"/>
+
+        <!-- DIVIDER 1 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#dadada"
+            android:id="@+id/divider1"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_details"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- USER SCORE -->
+        <TextView
+            android:id="@+id/tv_ratings_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="User Score: 9/10"
+            android:textSize="17sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider1"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_description_details"
+            android:paddingRight="16dp"
+            android:paddingEnd="16dp"
+            android:paddingLeft="16dp"
+            android:paddingStart="16dp"/>
+
+        <!-- DIVIDER 2 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#dadada"
+            android:id="@+id/divider2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ratings_details"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- VIDEOS SECTION TITLE -->
+        <TextView
+            android:id="@+id/tv_videos_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movie_videos"
+            android:textSize="17sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider2"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_description_details"
+            android:paddingRight="16dp"
+            android:paddingEnd="16dp"
+            android:paddingLeft="16dp"
+            android:paddingStart="16dp"/>
+
+        <!-- VIDEO RECYCLER VIEW -->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_videos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_videos_details"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"/>
+
+
+        <!-- VIDEO LOADING INDICATOR -->
+        <ProgressBar
+            android:id="@+id/pb_loading_indicator_videos_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="@+id/recyclerview_videos"
+            app:layout_constraintLeft_toLeftOf="@+id/recyclerview_videos"
+            app:layout_constraintRight_toRightOf="@+id/recyclerview_videos"
+            app:layout_constraintBottom_toBottomOf="@+id/recyclerview_videos"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- NO VIDEOS MESSAGE -->
+        <TextView
+            android:id="@+id/tv_videos_no_content_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movie_video_no_content_message"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="@+id/recyclerview_videos"
+            app:layout_constraintLeft_toLeftOf="@+id/recyclerview_videos"
+            app:layout_constraintRight_toRightOf="@+id/recyclerview_videos"
+            app:layout_constraintBottom_toBottomOf="@+id/recyclerview_videos"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- DIVIDER 3 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#dadada"
+            android:id="@+id/divider3"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerview_videos"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- REVIEWS SECTION TITLE -->
+        <TextView
+            android:id="@+id/tv_reviews_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movie_reviews"
+            android:textSize="17sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider3"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_description_details"
+            android:paddingRight="16dp"
+            android:paddingEnd="16dp"
+            android:paddingLeft="16dp"
+            android:paddingStart="16dp"/>
+
+        <!-- REVIEWS RECYCLER VIEW -->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_reviews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_reviews_details"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- REVIEWS LOADING INDICATOR -->
+        <ProgressBar
+            android:id="@+id/pb_loading_indicator_reviews_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="@+id/recyclerview_reviews"
+            app:layout_constraintLeft_toLeftOf="@+id/recyclerview_reviews"
+            app:layout_constraintRight_toRightOf="@+id/recyclerview_reviews"
+            app:layout_constraintBottom_toBottomOf="@+id/recyclerview_reviews"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- NO REVIEWS MESSAGE -->
+        <TextView
+            android:id="@+id/tv_reviews_no_content_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movie_review_no_content_message"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="@+id/recyclerview_reviews"
+            app:layout_constraintLeft_toLeftOf="@+id/recyclerview_reviews"
+            app:layout_constraintRight_toRightOf="@+id/recyclerview_reviews"
+            app:layout_constraintBottom_toBottomOf="@+id/recyclerview_reviews"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+        <!-- END MAIN CONTENT -->
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

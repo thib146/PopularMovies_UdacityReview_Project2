@@ -1,0 +1,4 @@
+<resources>
+    <!-- Boolean to know if the user uses a tablet or not -->
+    <bool name="isTablet">true</bool>
+</resources>

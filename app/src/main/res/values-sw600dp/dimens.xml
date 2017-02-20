@@ -1,0 +1,4 @@
+<resources>
+    <!-- Width of on review on a Tablet -->
+    <dimen name="review_width">470dp</dimen>
+</resources>

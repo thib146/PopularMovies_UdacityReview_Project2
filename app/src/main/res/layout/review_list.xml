@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- BEGIN MAIN CONTENT -->
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- REVIEW BACKGROUND -->
+        <ImageView
+            android:id="@+id/iv_review_view"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginEnd="4dp"/>
+
+        <!-- CIRCLE FOR THE INITIAL -->
+        <ImageView
+            android:id="@+id/iv_circle_initials"
+            android:src="@drawable/ic_brightness_1_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="@+id/iv_review_view"
+            app:layout_constraintLeft_toLeftOf="@+id/iv_review_view"/>
+
+        <!-- INITIAL LETTER -->
+        <TextView
+            android:id="@+id/tv_author_initial"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            tools:text="J"
+            android:textSize="22sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="29dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginStart="21dp"
+            app:layout_constraintTop_toTopOf="@+id/iv_review_view"
+            app:layout_constraintLeft_toLeftOf="@+id/iv_review_view"/>
+
+        <!-- AUTHOR NAME -->
+        <TextView
+            android:id="@+id/tv_author_name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            tools:text="John Doe 18273"
+            android:textStyle="bold"
+            android:layout_marginTop="22dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toTopOf="@+id/iv_review_view"
+            app:layout_constraintLeft_toRightOf="@+id/iv_circle_initials" />
+
+        <!-- REVIEW CONTENT -->
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_height="wrap_content"
+            android:layout_width="280dp"
+            tools:text="Awesome movie! Even though I fell asleep..."
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_author_name"
+            app:layout_constraintLeft_toRightOf="@+id/iv_circle_initials"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" />
+
+        <!-- READ MORE/LESS BUTTON -->
+        <TextView
+            android:id="@+id/tv_reviews_read_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movie_reviews_read_more"
+            android:clickable="true"
+            android:visibility="invisible"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</GridLayout>
