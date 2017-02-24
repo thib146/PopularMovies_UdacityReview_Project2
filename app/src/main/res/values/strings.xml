@@ -13,6 +13,9 @@
     <string name="error_message_api_key">
         The API Key is empty. Please enter your API Key in the "NetworkUtils.java" file and re-run the code.
     </string>
+    <string name="error_message_no_movie_selected">
+        Select a movie on the left panel to see its description, trailers and reviews here.
+    </string>
     <string name="no_favorites_message">
         You have no favorite movies yet. Browse through the movies and click on the heart button to save it in your Favorites list.
     </string>

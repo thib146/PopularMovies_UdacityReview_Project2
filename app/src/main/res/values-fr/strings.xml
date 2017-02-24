@@ -14,6 +14,9 @@
     <string name="error_message_api_key">
         La clé API est vide. Veuillez saisir votre clé API dans le fichier "NetworkUtils.java" et recompiler le code.
     </string>
+    <string name="error_message_no_movie_selected">
+        Sélectionnez un film dans le paneau de gauche pour voir sa description, ses bandes annonces et ses commentaires ici.
+    </string>
     <string name="no_favorites_message">
         Vous n\'avez pas encore de films favoris. Naviguez dans les films et cliquez sur le bouton Coeur pour l\'enregistrer dans votre liste de Favoris.
     </string>

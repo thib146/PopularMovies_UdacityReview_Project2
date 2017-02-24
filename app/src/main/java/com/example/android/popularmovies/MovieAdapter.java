@@ -2,21 +2,15 @@ package com.example.android.popularmovies;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.android.popularmovies.data.PopularMoviesContract;
 import com.example.android.popularmovies.utilities.MovieArrays;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 
@@ -88,11 +82,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
         @Override
         public void onClick(View v) {
             adapterPosition = getAdapterPosition();
-            String sortQuery = MainActivity.getSortQuery();
+            String sortQuery = MoviesListFragment.getSortQuery();
 
             if (sortQuery.equals("favorites")) { /* On the favorites Movie section, get the movie ID from the database */
                 mCursor.moveToPosition(adapterPosition);
-                int movieId = mCursor.getInt(MainActivity.INDEX_MOVIE_ID);
+                int movieId = mCursor.getInt(MoviesListFragment.INDEX_MOVIE_ID);
                 String movieIdString = String.valueOf(movieId);
                 mClickHandler.onClick(movieIdString);
             } else { /* On the favorites Movie section, get the adapter position */
@@ -133,13 +127,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
      */
     @Override
     public void onBindViewHolder(final MovieAdapterViewHolder movieAdapterViewHolder, int position) {
-        String sortQuery = MainActivity.getSortQuery();
+        String sortQuery = MoviesListFragment.getSortQuery();
 
         if (sortQuery.equals("favorites")) { /* If we're on the favorites page, get the data from the database (= cursor) */
             mCursor.moveToPosition(position);
 
-            String oneMoviePoster = mCursor.getString(MainActivity.INDEX_POSTER_PATH);
-            String oneMovieTitle = mCursor.getString(MainActivity.INDEX_TITLE);
+            String oneMoviePoster = mCursor.getString(MoviesListFragment.INDEX_POSTER_PATH);
+            String oneMovieTitle = mCursor.getString(MoviesListFragment.INDEX_TITLE);
             final Context context = movieAdapterViewHolder.mMovieImageView.getContext();
 
             // Display the movie poster and the movie title in the RecyclerView
@@ -166,7 +160,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
      */
     @Override
     public int getItemCount() {
-        String sortQuery = MainActivity.getSortQuery();
+        String sortQuery = MoviesListFragment.getSortQuery();
 
         if (sortQuery.equals("favorites")) {
             if (null == mCursor) return 0;

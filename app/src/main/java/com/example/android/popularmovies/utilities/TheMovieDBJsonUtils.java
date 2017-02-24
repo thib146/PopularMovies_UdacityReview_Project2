@@ -6,7 +6,6 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.example.android.popularmovies.MainActivity;
-import com.example.android.popularmovies.MovieDetails;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +21,7 @@ import java.util.ArrayList;
  * Created by thib146 on 20/01/2017.
  */
 
-public class TheMovieDBJsonUtils {
+public final class TheMovieDBJsonUtils {
 
     private static final String TAG = "TheMovieJson";
     /**

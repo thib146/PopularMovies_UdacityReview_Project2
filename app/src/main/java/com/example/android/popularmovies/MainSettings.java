@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
+
 /**
  * Created by thib146 on 21/01/2017.
  */
@@ -18,25 +20,12 @@ public class MainSettings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        /**
-         * Management of menu buttons
-         */
-        // BACK BUTTON
-        final ImageView back = (ImageView) findViewById(R.id.iv_back_settings);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        // ABOUT BUTTON
-        final TextView about = (TextView) findViewById(R.id.tv_about_button);
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentToStartAboutActivity = new Intent(MainSettings.this, About.class);
-                startActivity(intentToStartAboutActivity);
-            }
-        });
+        // Get the device's orientation
+        int orientation = getResources().getConfiguration().orientation;
+
+        // If we're on a Tablet and we rotate the device from landscape to portrait, close this activity
+        if (getResources().getBoolean(R.bool.isTablet) && orientation == ORIENTATION_LANDSCAPE) {
+            finish();
+        }
     }
 }

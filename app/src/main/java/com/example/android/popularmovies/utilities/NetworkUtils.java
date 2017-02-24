@@ -65,7 +65,7 @@ public final class NetworkUtils {
             e.printStackTrace();
         }
 
-        Log.v(TAG, "Built URI " + url);
+        Log.v(TAG, "Built URI List " + url);
 
         return url;
     }
@@ -95,7 +95,7 @@ public final class NetworkUtils {
             e.printStackTrace();
         }
 
-        Log.v(TAG, "Built URI " + url);
+        Log.v(TAG, "Built URI Detail " + url);
 
         return url;
     }
@@ -121,7 +121,7 @@ public final class NetworkUtils {
             e.printStackTrace();
         }
 
-        Log.v(TAG, "Built URI " + url);
+        Log.v(TAG, "Built URI Videos " + url);
 
         return url;
     }
@@ -147,7 +147,7 @@ public final class NetworkUtils {
             e.printStackTrace();
         }
 
-        Log.v(TAG, "Built URI " + url);
+        Log.v(TAG, "Built URI Reviews " + url);
 
         return url;
     }

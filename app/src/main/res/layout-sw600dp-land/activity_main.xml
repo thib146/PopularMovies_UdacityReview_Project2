@@ -1,0 +1,24 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- MOVIE LIST FRAGMENT / LANDSCAPE MODE -->
+    <fragment
+        android:id="@+id/movies_list_fragment"
+        class="com.example.android.popularmovies.MoviesListFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        tools:layout="@layout/movies_list_fragment"
+        android:layout_weight="1" />
+
+    <!-- MOVIE DETAIL/SETTINGS/ABOUT FRAGMENT - LANDSCAPE MODE -->
+    <FrameLayout
+        android:id="@+id/movie_detail_fragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5" />
+
+</LinearLayout>

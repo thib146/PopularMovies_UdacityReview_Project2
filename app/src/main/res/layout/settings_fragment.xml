@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- BEGIN TOOLBAR -->
+    <ImageView
+        android:id="@+id/settings_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iv_back_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        app:layout_constraintTop_toTopOf="@+id/settings_toolbar"
+        app:layout_constraintBottom_toBottomOf="@+id/settings_toolbar"
+        app:layout_constraintLeft_toLeftOf="@+id/settings_toolbar"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:textColor="@color/colorMainToolbarText"
+        android:textSize="20sp"
+        android:id="@+id/settings_toolbar_title"
+        app:layout_constraintTop_toTopOf="@+id/settings_toolbar"
+        app:layout_constraintBottom_toBottomOf="@+id/settings_toolbar"
+        app:layout_constraintLeft_toRightOf="@+id/iv_back_settings"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:textColor="@color/colorMainToolbarText"
+        android:textSize="20sp"
+        android:id="@+id/settings_toolbar_title_landscape"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:visibility="invisible"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"/>
+    <!-- END TOOLBAR -->
+
+    <!-- BEGIN MAIN CONTENT -->
+    <!-- ABOUT LOGO -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_info_outline_black_24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/settings_toolbar"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:id="@+id/imageView" />
+
+    <!-- ABOUT ITEM -->
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_about_button"
+        android:text="@string/about"
+        android:textColor="@color/textItemsSettings"
+        android:textSize="20sp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+    <!-- END MAIN CONTENT -->
+
+</android.support.constraint.ConstraintLayout>

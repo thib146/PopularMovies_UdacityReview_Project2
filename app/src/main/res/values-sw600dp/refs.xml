@@ -1,0 +1,4 @@
+<resources>
+    <!-- Boolean to know if the user uses a tablet or not -->
+    <item name="activity_circle_list" type="layout">@layout/activity_main</item>
+</resources>
